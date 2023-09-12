@@ -13,20 +13,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val botao = findViewById<ImageButton>(R.id.btnProximo1)
+        val nome = findViewById<EditText>(R.id.edtNome)
+        val email = findViewById<EditText>(R.id.edtEmail)
 
         botao.setOnClickListener {
 
-            val nome = findViewById<EditText>(R.id.edtNome).text.toString()
-            val email = findViewById<EditText>(R.id.edtEmail).text.toString()
-
             val pacote = Bundle()
-            pacote.putString("nome", nome)
-            pacote.putString("email", email)
+            pacote.putString("nome", nome.text.toString())
+            pacote.putString("email", email.text.toString())
 
             val i = Intent(this, Tela2::class.java)
-
             i.putExtras(pacote)
-
             startActivity(i)
 
         }
